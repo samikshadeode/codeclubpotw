@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+//Complete the following function.
+
+int orfunc(int a,int b)
+{
+    return a|b;
+
+}
+int andfunc(int a,int b)
+{
+    return a&b;
+    
+}
+int xorfunc(int a,int b)
+{
+    return a^b;
+    
+}
+void calculate_the_maximum(int n, int k) {
+  //Write your code here.
+  int max1=0;
+  int max2=0;
+  int max3=0;
+  
+  for(int a=1;a<n;a++)
+  {
+    for(int b=1;b<=n;b++)
+    {
+        if(a!=b && a<b)
+        {
+            int c=orfunc(a,b);
+            int d=andfunc(a,b);
+            int f=xorfunc(a,b);
+            
+            
+            if(c>max1 && c<k)
+            {
+                max1=c;
+            }
+            if(d>max2 && d<k)
+            {
+                max2=d;
+            }
+            if(f>max3 && f<k)
+            {
+                max3=f;
+            }
+        
+        }
+    }
+  }
+  printf("%d\n",max2);
+  printf("%d\n",max1);
+  printf("%d\n",max3);
+}
+
+
+
+int main() {
+    int n, k;
+  
+    scanf("%d %d", &n, &k);
+    calculate_the_maximum(n, k);
+ 
+    return 0;
+}
